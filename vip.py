@@ -21,7 +21,7 @@ def setApiKey(value)->bool:
     Return True is correct apikey, False otherwise.
     Raise an error if an other problems occured 
     """
-    url = __PREFIX + 'plateform'
+    url = __PREFIX + 'platform'
     head_test = {
                  'apikey': value,
                 }
@@ -33,6 +33,7 @@ def setApiKey(value)->bool:
         else:
             raise RuntimeError("Error {} from VIP : {}".format(res[1], res[2]))
     else:
+        global __apikey
         __apikey = value
         __headers['apikey'] = value
         return True
